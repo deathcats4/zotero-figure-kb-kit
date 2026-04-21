@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+
+figure_kb/
+tmp/
+local_settings.json
+config.json
+.env
