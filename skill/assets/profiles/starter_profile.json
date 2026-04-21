@@ -1,0 +1,127 @@
+{
+  "profile_name": "starter_profile",
+  "kb_title": "Figure Knowledge Base",
+  "description": "A minimal, shareable workflow for extracting figures from Zotero PDFs into a review inbox, then organizing them into a searchable local figure knowledge base.",
+  "relation_label": "Suggested use",
+  "relation_fallback": "Use this figure as a candidate reference for reading notes, writing, comparison, or figure design.",
+  "use_cases": [
+    "Context",
+    "Methods",
+    "Results",
+    "Discussion",
+    "Design reference"
+  ],
+  "topics": [
+    {
+      "name": "Overview And Setup",
+      "keywords": [
+        "overview",
+        "context",
+        "framework",
+        "setup",
+        "configuration",
+        "architecture",
+        "system overview",
+        "study design",
+        "dataset overview",
+        "sample overview",
+        "overview figure"
+      ],
+      "use_case": "Context",
+      "relevance": "High",
+      "usage_note": "Use for introductory framing, system setup, architecture overviews, and other context-setting figures."
+    },
+    {
+      "name": "Workflow And Procedure",
+      "keywords": [
+        "workflow",
+        "method",
+        "flowchart",
+        "protocol",
+        "pipeline",
+        "algorithm",
+        "processing",
+        "procedure",
+        "analysis pipeline",
+        "implementation"
+      ],
+      "use_case": "Methods",
+      "relevance": "Medium",
+      "usage_note": "Use for methods, procedures, pipelines, implementation steps, and workflow-style figures."
+    },
+    {
+      "name": "Quantitative Results",
+      "keywords": [
+        "graph",
+        "plot",
+        "chart",
+        "curve",
+        "distribution",
+        "scatter",
+        "histogram",
+        "boxplot",
+        "heatmap",
+        "table",
+        "bar chart",
+        "quantitative result"
+      ],
+      "use_case": "Results",
+      "relevance": "Medium",
+      "usage_note": "Use for plots, charts, tables, benchmarks, and other quantitative result displays."
+    },
+    {
+      "name": "Images And Observations",
+      "keywords": [
+        "image",
+        "photograph",
+        "screenshot",
+        "scan",
+        "observation",
+        "visual inspection",
+        "panel",
+        "annotated image",
+        "labeled image",
+        "example image"
+      ],
+      "use_case": "Results",
+      "relevance": "High",
+      "usage_note": "Use for photographs, screenshots, scans, annotated panels, and other observation-first figure types."
+    },
+    {
+      "name": "Models And Schematics",
+      "keywords": [
+        "schematic",
+        "conceptual",
+        "model",
+        "mechanism",
+        "process model",
+        "system model",
+        "graphical abstract",
+        "diagram",
+        "cartoon",
+        "schematic summary"
+      ],
+      "use_case": "Discussion",
+      "relevance": "High",
+      "usage_note": "Use for conceptual explanation, model figures, mechanism diagrams, and schematic summaries."
+    },
+    {
+      "name": "Comparison And Synthesis",
+      "keywords": [
+        "comparison",
+        "summary",
+        "overview",
+        "synthesis",
+        "benchmark",
+        "review",
+        "taxonomy",
+        "decision tree",
+        "comparison figure",
+        "summary figure"
+      ],
+      "use_case": "Discussion",
+      "relevance": "Medium",
+      "usage_note": "Use for side-by-side comparisons, synthesis panels, summary figures, and review-style visuals."
+    }
+  ]
+}
