@@ -31,7 +31,6 @@ DEFAULT_ZOTERO_PROFILE_ROOTS = [
 DEFAULT_ZOTERO_DATA_DIRS = [
     Path.home() / "Zotero",
     Path.home() / "Documents" / "Zotero",
-    Path(r"D:\ZoteroData"),
 ]
 DEFAULT_JAVA = Path(shutil.which("java") or "")
 DEFAULT_PROFILE_PATH = PROFILE_DIR / "starter_profile.json"

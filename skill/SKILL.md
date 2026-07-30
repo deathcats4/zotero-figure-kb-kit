@@ -43,22 +43,22 @@ python <skill-dir>\scripts\zotero_figure_workflow.py check
 Create a review inbox from a known PDF attachment key:
 
 ```powershell
-python <skill-dir>\scripts\zotero_figure_workflow.py extract-cache --attachment-key B55XD698
+python <skill-dir>\scripts\zotero_figure_workflow.py extract-cache --attachment-key <PDF_ATTACHMENT_KEY>
 ```
 
 Or create a review inbox from a parent Zotero item:
 
 ```powershell
-python <skill-dir>\scripts\zotero_figure_workflow.py extract-cache --item FVM7NXFM
+python <skill-dir>\scripts\zotero_figure_workflow.py extract-cache --item <PARENT_ITEM_KEY>
 ```
 
 Batch modes:
 
 ```powershell
-python <skill-dir>\scripts\zotero_figure_workflow.py extract-cache --items FVM7NXFM ZKA3C3X5
-python <skill-dir>\scripts\zotero_figure_workflow.py extract-cache --attachment-keys B55XD698 G3ADXGSB
-python <skill-dir>\scripts\zotero_figure_workflow.py extract-cache --collection-key QBWHII7A
-python <skill-dir>\scripts\zotero_figure_workflow.py extract-cache --collection-name "Codex 标注证据测试 - 铀矿"
+python <skill-dir>\scripts\zotero_figure_workflow.py extract-cache --items <PARENT_ITEM_KEY_1> <PARENT_ITEM_KEY_2>
+python <skill-dir>\scripts\zotero_figure_workflow.py extract-cache --attachment-keys <PDF_ATTACHMENT_KEY_1> <PDF_ATTACHMENT_KEY_2>
+python <skill-dir>\scripts\zotero_figure_workflow.py extract-cache --collection-key <COLLECTION_KEY>
+python <skill-dir>\scripts\zotero_figure_workflow.py extract-cache --collection-name "<COLLECTION_NAME>"
 python <skill-dir>\scripts\zotero_figure_workflow.py extract-cache --all-cached
 ```
 

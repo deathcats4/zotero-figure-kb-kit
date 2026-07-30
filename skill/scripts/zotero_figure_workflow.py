@@ -39,8 +39,6 @@ DEFAULT_ZOTERO_PROFILE_ROOTS = [
 DEFAULT_ZOTERO_DATA_DIRS = [
     Path.home() / "Zotero",
     Path.home() / "Documents" / "Zotero",
-    Path(r"D:\Zotero\ZoteroData"),
-    Path(r"D:\ZoteroData"),
 ]
 DEFAULT_SETTINGS_NAMES = ["local_settings.json", "config.json", ".env"]
 

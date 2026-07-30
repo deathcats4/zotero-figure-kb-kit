@@ -80,21 +80,21 @@ python .\skill\scripts\zotero_figure_workflow.py check
 Create a review inbox from a PDF attachment key:
 
 ```powershell
-python .\skill\scripts\zotero_figure_workflow.py extract-cache --attachment-key B55XD698
+python .\skill\scripts\zotero_figure_workflow.py extract-cache --attachment-key <PDF_ATTACHMENT_KEY>
 ```
 
 Or from a parent Zotero item key:
 
 ```powershell
-python .\skill\scripts\zotero_figure_workflow.py extract-cache --item FVM7NXFM
+python .\skill\scripts\zotero_figure_workflow.py extract-cache --item <PARENT_ITEM_KEY>
 ```
 
 Batch examples:
 
 ```powershell
-python .\skill\scripts\zotero_figure_workflow.py extract-cache --items FVM7NXFM ZKA3C3X5
-python .\skill\scripts\zotero_figure_workflow.py extract-cache --attachment-keys B55XD698 G3ADXGSB
-python .\skill\scripts\zotero_figure_workflow.py extract-cache --collection-key QBWHII7A
+python .\skill\scripts\zotero_figure_workflow.py extract-cache --items <PARENT_ITEM_KEY_1> <PARENT_ITEM_KEY_2>
+python .\skill\scripts\zotero_figure_workflow.py extract-cache --attachment-keys <PDF_ATTACHMENT_KEY_1> <PDF_ATTACHMENT_KEY_2>
+python .\skill\scripts\zotero_figure_workflow.py extract-cache --collection-key <COLLECTION_KEY>
 python .\skill\scripts\zotero_figure_workflow.py extract-cache --all-cached
 ```
 
@@ -148,7 +148,7 @@ Without the marker, the action imports figure/table results from the manifest, c
 The default workflow autodetects common Zotero data directories. If autodetection fails:
 
 ```powershell
-python .\skill\scripts\zotero_figure_workflow.py --data-dir "D:\Zotero\ZoteroData" check
+python .\skill\scripts\zotero_figure_workflow.py --data-dir "<ZOTERO_DATA_DIR>" check
 ```
 
 `local_settings.example.json` documents portable settings. Keep machine-specific settings in an untracked `local_settings.json`.
@@ -158,7 +158,7 @@ python .\skill\scripts\zotero_figure_workflow.py --data-dir "D:\Zotero\ZoteroDat
 Tell Codex:
 
 ```text
-Use $zotero-figure-kb to create a review inbox for Zotero item FVM7NXFM.
+Use $zotero-figure-kb to create a review inbox for Zotero item <PARENT_ITEM_KEY>.
 ```
 
 For full literature notes, run this skill first, then pass reviewed candidates to a Zotero Better Notes / Obsidian sync workflow.
