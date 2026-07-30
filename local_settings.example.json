@@ -1,5 +1,9 @@
 {
-  "data_dir": "D:\\ZoteroData",
-  "java": "C:\\Program Files\\Eclipse Adoptium\\jre-17\\bin\\java.exe",
-  "jar": "D:\\tools\\pdffigures2.jar"
+  "data_dir": "D:\\Zotero\\ZoteroData",
+  "notes": "Copy this file to local_settings.json if Zotero data directory autodetection fails. Keep local_settings.json untracked.",
+  "legacy_pdffigures2": {
+    "java": "C:\\Program Files\\Eclipse Adoptium\\jre-17\\bin\\java.exe",
+    "jar": "D:\\tools\\pdffigures2.jar",
+    "enabled_only_when_explicitly_requested": true
+  }
 }

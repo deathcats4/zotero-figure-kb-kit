@@ -1,111 +1,82 @@
 # For Other AI
 
-Read this file first if you are another AI agent asked to understand or run this repository.
+Read this first if you are an AI agent asked to use this repository.
 
-## What This Repository Does
+## One-Sentence Summary
 
-This repository is a local workflow for extracting figures from Zotero PDFs into a figure knowledge base.
+This repo turns already-analyzed Zotero Figure plugin results into a reviewable figure/table inbox for Codex and Zotero note workflows.
 
-Its safe path is:
+## Default Goal
 
-`check_setup -> init -> extract -> review -> ingest -> search`
+Create a review inbox from Zotero Figure cache:
 
-Its faster path is:
+```text
+Zotero Figure manifest/images -> review.md + review.csv + copied PNG assets
+```
 
-`check_setup -> init -> extract --ingest-mode auto -> search`
+Do not assume Java, MinerU, or `pdffigures2.jar` are available.
 
-The extraction work is done by `pdffigures2`, not by AI image cropping.
-
-## Your Goal
-
-If the user asks you to use this repository, your default goal is:
-
-1. confirm the local environment
-2. initialize the local KB if needed
-3. choose workflow mode
-4. use `safe` if the user wants review before ingest
-5. use `auto` if the user wants immediate ingestion
-
-## Read These Files In Order
-
-1. `AGENTS.md`
-2. `skill/SKILL.md`
-3. `README.md`
-
-Use `README.md` for the human-facing workflow and examples.
-Use `AGENTS.md` and `skill/SKILL.md` for execution rules and behavior.
-
-## Minimum Runnable Commands
+## First Commands
 
 Run from the repository root:
 
 ```powershell
-python .\skill\scripts\check_setup.py
-python .\skill\scripts\figure_kb_workflow.py init
-python .\skill\scripts\figure_kb_workflow.py extract --query "paper title keywords"
+python .\skill\scripts\zotero_figure_workflow.py check
 ```
 
-Then stop and inspect:
-
-- `figure_kb/00_inbox/<batch_id>/review.md`
-- `figure_kb/00_inbox/<batch_id>/review.csv`
-
-Only after review decisions exist:
+Then use one:
 
 ```powershell
-python .\skill\scripts\figure_kb_workflow.py ingest --batch-id "<batch_id>"
+python .\skill\scripts\zotero_figure_workflow.py extract-cache --attachment-key <PDF_ATTACHMENT_KEY>
+python .\skill\scripts\zotero_figure_workflow.py extract-cache --item <PARENT_ITEM_KEY>
+python .\skill\scripts\zotero_figure_workflow.py extract-cache --collection-key <COLLECTION_KEY>
+python .\skill\scripts\zotero_figure_workflow.py extract-cache --all-cached
 ```
 
-Fast path:
+Expected output:
+
+```text
+figure_kb/00_inbox/<batch_id>/batch.json
+figure_kb/00_inbox/<batch_id>/review.md
+figure_kb/00_inbox/<batch_id>/review.csv
+figure_kb/00_inbox/<batch_id>/assets/*.png
+figure_kb/03_indexes/batch_summary_<timestamp>.csv
+```
+
+Batch modes can process multiple already-cached PDFs. Missing Zotero Figure manifests are recorded as `failed` rows in the summary CSV; do not treat that as a reason to switch silently to another extractor.
+
+## If Cache Is Missing
+
+Tell the user:
+
+```text
+Run Zotero Figure analysis for this PDF in Zotero first.
+```
+
+This repo does not trigger Zotero Figure analysis.
+
+## If The User Wants Images In Zotero Notes
+
+Use the Actions & Tags installer while Zotero is closed:
 
 ```powershell
-python .\skill\scripts\figure_kb_workflow.py `
-  extract `
-  --query "paper title keywords" `
-  --ingest-mode auto
+python .\skill\scripts\install_actions_tags_pdf_figure_intake.py --dry-run
+python .\skill\scripts\install_actions_tags_pdf_figure_intake.py
 ```
 
-## What Success Looks Like
+Then the user can run this Zotero menu action on a target child note:
 
-After `extract`, expect:
+```text
+Codex: import PDF Figure images to selected note
+```
 
-- a new batch folder under `figure_kb/00_inbox/`
-- an `assets/` folder with extracted image files
-- a `review.md` file for quick inspection
-- a `review.csv` file for keep/reject/override decisions
+## Important Constraints
 
-After `ingest`, expect:
+- Do not directly reuse image keys from the PDF Figure note in another note.
+- To make a target note own images, use Zotero-internal `importEmbeddedImage`.
+- Keep figure/table evidence reviewable.
+- Treat table-to-Markdown extraction as a separate review-needed step.
 
-- accepted figures moved into `figure_kb/01_library/<topic>/`
-- figure cards under `figure_kb/02_cards/`
-- Obsidian-friendly copies under `figure_kb/04_obsidian/`
-- a master index update in `figure_kb/03_indexes/figures_master.csv`
+## Legacy
 
-## Important Boundaries
-
-- Do not assume project-specific domain logic belongs here.
-- Do not treat the profile file as the core workflow.
-- Do not treat manual review as the only valid workflow.
-- Do not create root-level test folders.
-- Do not hand-crop figures if native `pdffigures2` export is available.
-- Use `safe` or `auto` based on the user's preference.
-
-## Optional Configuration
-
-The repository includes:
-
-- `skill/assets/profiles/starter_profile.json`
-
-This is only a starter example for custom topic names and labels.
-It is not required for the shortest runnable path.
-
-For explicit machine paths, prefer:
-
-- `--data-dir`
-- `--java`
-- `--jar`
-- `local_settings.json`, `config.json`, or `.env`
-
-## One-Sentence Summary
-
-This repo is a small, AI-runnable Zotero figure extraction workflow where local tools do the extraction and the AI helps organize, review, or auto-ingest the results.
+The old pdffigures2 workflow remains in `skill/scripts/legacy_pdffigures2_workflow.py`. Use it only when explicitly requested.

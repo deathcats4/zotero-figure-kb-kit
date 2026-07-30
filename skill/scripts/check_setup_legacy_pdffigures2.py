@@ -3,7 +3,7 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-from figure_kb_workflow import detect_zotero_config, load_runtime_settings
+from legacy_pdffigures2_workflow import detect_zotero_config, load_runtime_settings
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -34,10 +34,10 @@ def main() -> int:
     print(f"Java: {config.java_path}")
     print("")
     print("You can now run:")
-    print("python .\\skill\\scripts\\figure_kb_workflow.py init")
+    print("python .\\skill\\scripts\\legacy_pdffigures2_workflow.py init")
     print("")
     print("Optional customization:")
-    print("python .\\skill\\scripts\\figure_kb_workflow.py --profile .\\skill\\assets\\profiles\\starter_profile.json init")
+    print("python .\\skill\\scripts\\legacy_pdffigures2_workflow.py --profile .\\skill\\assets\\profiles\\starter_profile.json init")
     if settings.get("_source_path"):
         print("")
         print(f"Settings file used: {settings['_source_path']}")

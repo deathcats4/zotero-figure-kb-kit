@@ -1,0 +1,4 @@
+interface:
+  display_name: "Zotero Figure KB"
+  short_description: "Review Zotero Figure figures and tables."
+  default_prompt: "Use $zotero-figure-kb to create a review inbox from Zotero Figure results."
